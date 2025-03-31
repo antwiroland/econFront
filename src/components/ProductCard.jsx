@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
         <div className="mt-2 mb-2 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-emerald-400">
-              GHS&nbsp;{product.price}
+              $&nbsp;{product.price}
             </span>
           </p>
         </div>
