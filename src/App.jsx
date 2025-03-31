@@ -18,21 +18,26 @@ import PurchaseCancelPage from "./pages/PurchaseCancelPage";
 import UserOrdersPage from "./pages/OrdersPage";
 
 function App() {
-	const { user, checkAuth, checkingAuth } = useUserStore();
-	const { getCartItems } = useCartStore();
-	useEffect(() => {
-		checkAuth();
-	}, [checkAuth]);
+  const { user, checkAuth, checkingAuth } = useUserStore();
+  const { getCartItems } = useCartStore();
 
-	useEffect(() => {
-		if (!user) return;
+  useEffect(() => {
+    document.title = "Agate Electronics";
+  }, []);
 
-		getCartItems();
-	}, [getCartItems, user]);
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
-	if (checkingAuth) return <LoadingSpinner />;
+  useEffect(() => {
+    if (!user) return;
 
-	return (
+    getCartItems();
+  }, [getCartItems, user]);
+
+  if (checkingAuth) return <LoadingSpinner />;
+
+  return (
     <div className="min-h-screen bg-gray-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0">
